@@ -1,5 +1,44 @@
 <div class="po-row">
-  <po-button class="po-mt-1" p-label="Nova categoria" p-kind="primary"></po-button>
+  <po-modal #modalProduto p-title="Adicionar Produto" [p-primary-action]="confirm" [p-secondary-action]="close">
+    <po-input
+      p-label="Titulo"
+      class="po-sm-6">
+    </po-input>
+
+    <po-input
+      p-label="Valor"
+      class="po-sm-6">
+    </po-input>
+
+    <po-input
+      p-label="Quantidade"
+      class="po-sm-6">
+    </po-input>
+
+    <po-input
+      p-label="Data de Entrada"
+      class="po-sm-6">
+    </po-input>
+    <po-multiselect
+      name="multiselect"
+      p-label="Categorias"
+      class="po-sm-6">
+    </po-multiselect>
+
+    <po-divider class="po-md-12"></po-divider>
+    <div class="po-sm-12 po-pb-1">Informações para alerta de estoque</div>
+    <po-input
+      p-label="Quantidade minima"
+      class="po-sm-6">
+    </po-input>
+
+    <po-input
+      p-label="Quantidade Máxima"
+      class="po-sm-6">
+    </po-input>
+  </po-modal>
+
+  <po-button class="po-mt-1" p-label="Novo Produto" p-kind="primary" (p-click)="modalProduto.open()"></po-button>
   <po-input
     class="po-md-2 po-mb-2 po-offset-xl-9"
     p-icon="po-icon-search"

@@ -1,5 +1,16 @@
 <div class="po-row">
-  <po-button class="po-mt-1" p-label="Nova categoria" p-kind="primary"></po-button>
+  <po-modal #modalCategoria p-title="Adicionar Categoria" [p-primary-action]="confirm" [p-secondary-action]="close">
+    <po-input
+      p-label="Titulo"
+      class="po-sm-12">
+    </po-input>
+
+    <po-textarea name="textarea" p-label="Descrição">
+
+    </po-textarea>
+
+  </po-modal>
+  <po-button class="po-mt-1" p-label="Nova categoria" p-kind="primary" (p-click)="modalCategoria.open()"></po-button>
   <po-input
     class="po-md-2 po-mb-2 po-offset-xl-9"
     p-icon="po-icon-search"
