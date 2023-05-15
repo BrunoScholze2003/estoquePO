@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PoModalAction, PoModalComponent, PoTableColumn } from '@po-ui/ng-components';
+import { PoModalAction, PoModalComponent, PoTableAction, PoTableColumn } from '@po-ui/ng-components';
 import { ProdutoGetAllService } from '../../services/produto-get-all.service';
+import { ProdutoGetInterface } from '../../interfaces/produto-get-interface';
+import { ProdutoDeleteService } from '../../services/produto-delete.service';
 
 @Component({
   selector: 'app-produto-grid',
@@ -23,6 +25,15 @@ export class ProdutoGridComponent implements OnInit {
     this.produtoGetAllService.get().subscribe((prod)=>{
       this.produtos = prod;
     });
+  }
+
+  public actions: Array<PoTableAction> = [
+    { icon: 'po-icon po-icon-edit', label: 'Alterar' },
+    { icon: 'po-icon po-icon-delete', label: 'Deletar', action: this.deletar.bind(this) }
+  ];
+
+  private deletar(item: ProdutoGetInterface){
+    //this.produtoDeleteService.delete(item.id).subscribe();
   }
 
   columns: Array<PoTableColumn> = [

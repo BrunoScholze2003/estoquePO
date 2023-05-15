@@ -1,8 +1,5 @@
 export interface CategoriaGetInterface {
+  id: string;
   titulo: string;
   descricao: string;
-}
-
-export interface CategoriaContent {
-  content: CategoriaGetInterface[];
 }
